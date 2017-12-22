@@ -500,8 +500,12 @@ ng serve --aot</code></pre><p>Then you need to import your library into your pro
 <p>Now, once you update your library source code it will automatically be re-compiled and your project will be re-built so you may see library changes instantly.</p>
 <p><a href="https://yarnpkg.com/en/docs/cli/link">More information</a> about <code>yarn link</code> command.</p>
 <blockquote>
-<p>At the moment of publishing this project there is a <a href="https://github.com/angular/angular-cli/issues/3854">bug</a> exists when using <code>yarn link</code> in combination with Angular CLI. The issue is caused by having <code>node_modules</code> folder inside linked library. There is a <a href="https://github.com/angular/angular-cli/issues/3854#issuecomment-274344771">workaround</a> has been provided that suggests to add a <code>paths</code> property with all Angular dependencies to the <code>tsconfig.json</code> file of the Angular CLI project like so: <code>&quot;paths&quot;: { &quot;@angular/*&quot;: [&quot;../node_modules/@angular/*&quot;] }</code></p>
-</blockquote>
+<p>At the moment of publishing this project there is a <a href="https://github.com/angular/angular-cli/issues/3854">bug</a> exists when using <code>yarn link</code> in combination with Angular CLI. The issue is caused by having <code>node_modules</code> folder inside linked library. There is a <a href="https://github.com/angular/angular-cli/issues/3854#issuecomment-274344771">workaround</a> has been provided that suggests to add a <code>paths</code> property with all Angular dependencies to the <code>tsconfig.json</code> file of the Angular CLI project like it is shown below:</p>
+<pre class="line-numbers"><code class="language-none">{
+  &quot;compilerOptions&quot;: {
+    &quot;paths&quot;: { &quot;&#64;angular/*&quot;: [&quot;../node_modules/&#64;angular/*&quot;] }
+  }
+}</code></pre></blockquote>
 
 
 
